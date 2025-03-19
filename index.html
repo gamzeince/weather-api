@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherMe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center p-5">
+
+
+  <nav class="w-full max-w-4xl flex justify-between items-center py-4 px-6 bg-gray-800 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold flex items-center space-x-2">
+      <span>🌤️ WeatherMe</span>
+    </h1>
+    <div class="flex space-x-4">
+      <a href="#" class="text-white font-semibold border-b-2 border-white">Today</a>
+      <a href="#" class="text-gray-400 hover:text-white">Tomorrow</a>
+      <a href="#" class="text-gray-400 hover:text-white">Monthly Forecast</a>
+    </div>
+  </nav>
+
+
+  <div class="mt-4 flex items-center space-x-2">
+    <span class="text-lg">°C</span>
+    <label class="relative inline-flex cursor-pointer">
+      <input type="checkbox" id="unitToggle" class="sr-only peer">
+      <div class="w-10 h-5 bg-gray-600 peer-checked:bg-green-500 rounded-full"></div>
+    </label>
+    <span class="text-lg">°F</span>
+  </div>
+
+
+  <div class="relative mt-5 w-full max-w-md">
+    <input id="searchInput" type="text" placeholder="Search location..."
+           class="bg-gray-800 text-white px-4 py-3 rounded-full w-full focus:outline-none focus:ring-2 focus:ring-purple-500">
+    <button onclick="fetchWeather()" class="absolute right-3 top-3 text-gray-400">🔍</button>
+  </div>
+
+
+  <div id="weatherCard" class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl shadow-lg p-8 mt-6 w-full max-w-2xl text-center">
+   
+    <h2 id="cityName" class="text-3xl font-semibold"></h2>
+    <p id="date" class="text-gray-300"></p>
+
+    <div class="flex items-center justify-center mt-3 space-x-3">
+        <p class="text-6xl font-bold"><span id="temp"></span>°C</p>
+        <img id="weatherIcon" src="" class="w-16" alt="Hava Durumu İkonu">
+    </div>
+
+ 
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4 mt-6 text-gray-300 text-lg">
+        <p>💧 Nem: <span id="humidity"></p>
+        <p>👀 Görüş: <span id="visibility"></p>
+        <p>🌬️ Rüzgar: <span id="wind"></p>
+
+        <p>🔽 Basınç: <span id="pressure">   </p>
+        <p>🌡️ Hissedilen: <span id="feels_like">  </p>
+        <p>⬆️ Max: <span id="temp_max"></p>
+
+        <p>⬇️ Min: <span id="temp_min"></p>
+        <p>🌅 Gün Doğumu: <span id="sunrise"></p>
+        <p>🌇 Gün Batımı: <span id="sunset"></p>
+    </div>
+</div>
+
+  
+<div class="mt-8 w-full max-w-4xl grid grid-cols-3 sm:grid-cols-5 gap-4">
+
+  <div class="bg-gradient-to-b from-purple-500 to-gray-800 p-3 rounded-lg shadow-lg text-center">
+      <p class="text-sm text-gray-300">18:00</p>
+      <p class="text-xl">🌤️ 27°</p>
+  </div>
+
+
+  <div class="bg-gradient-to-b from-purple-500 to-gray-800 p-3 rounded-lg shadow-lg text-center">
+      <p class="text-sm text-gray-300">19:00</p>
+      <p class="text-xl">🌧️ 25°</p>
+  </div>
+
+  <div class="bg-gradient-to-b from-purple-500 to-gray-800 p-3 rounded-lg shadow-lg text-center">
+      <p class="text-sm text-gray-300">20:00</p>
+      <p class="text-xl">☁️ 24°</p>
+  </div>
+
+  
+  <div class="bg-gradient-to-b from-purple-500 to-gray-800 p-3 rounded-lg shadow-lg text-center">
+      <p class="text-sm text-gray-300">21:00</p>
+      <p class="text-xl">🌧️ 23°</p>
+  </div>
+
+
+  <div class="bg-gradient-to-b from-purple-500 to-gray-800 p-3 rounded-lg shadow-lg text-center">
+      <p class="text-sm text-gray-300">22:00</p>
+      <p class="text-xl">🌙 22°</p>
+  </div>
+</div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
